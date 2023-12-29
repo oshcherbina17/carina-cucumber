@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zebrunner.carina.demo.db.mappers.UserOrderMapper">
+
+    <select id="findById" resultMap="UserOrderResultMap">
+        SELECT * FROM orders WHERE id = #{id}
+    </select>
+    <select id="findOrdersByUserId" resultMap="UserOrderResultMap">
+        SELECT * FROM orders WHERE user_id = #{user_id}
+    </select>
+
+    <select id="findUserByOrderId" resultMap="UserOrderResultMap">
+        SELECT * FROM orders WHERE user_id = #{id}
+    </select>
+
+    <resultMap type="com.zebrunner.carina.demo.db.models.UserOrder"
+               id="UserOrderResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="product" property="productName"/>
+        <result column="price" property="price"/>
+    </resultMap>
+
+</mapper>
