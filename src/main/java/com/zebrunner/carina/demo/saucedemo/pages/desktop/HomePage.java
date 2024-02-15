@@ -1,7 +1,7 @@
 package com.zebrunner.carina.demo.saucedemo.pages.desktop;
 
 import com.zebrunner.carina.demo.saucedemo.components.BurgerMenu;
-import com.zebrunner.carina.demo.saucedemo.enums.SortDropdown;
+import com.zebrunner.carina.demo.saucedemo.enums.ProductName;
 import com.zebrunner.carina.demo.saucedemo.pages.common.CartPageBase;
 import com.zebrunner.carina.demo.saucedemo.pages.common.HomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
@@ -12,8 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
@@ -38,9 +36,7 @@ public class HomePage extends HomePageBase {
     private ExtendedWebElement itemTitleText;
 
     @FindBy(xpath = "//div[contains(text(),'%s')]/../../following-sibling::div/button[contains(@class,'btn_inventory')]")
-   // @FindBy(xpath = "//button[contains(@class,'btn btn_primary')]")
     private ExtendedWebElement addToCartBtn;
-   // private List<ExtendedWebElement> addToCartBtn;
 
     @FindBy(xpath = "//span[@class='shopping_cart_badge']")
     private ExtendedWebElement cartItemCounter;
@@ -68,6 +64,10 @@ public class HomePage extends HomePageBase {
     @Override
     public void clickAddToCartBtn(String productName) {
         addToCartBtn.format(productName).click();
+    }
+    @Override
+    public void clickAddToCartBtnEnum(ProductName productName) {
+        addToCartBtn.format(productName.getProductType()).click();
     }
 
     @Override
