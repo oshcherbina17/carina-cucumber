@@ -11,5 +11,7 @@ public abstract class CheckoutInfoPageBase extends AbstractPage {
 
     public abstract void typeInformation(String username);
 
+    public abstract void typeUserInformation(String firstName, String lastName, String zip);
+
     public abstract CheckoutOverviewPageBase clickOnContinueBtn();
 }

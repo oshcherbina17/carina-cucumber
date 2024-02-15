@@ -42,6 +42,14 @@ public class CheckoutInfoPage extends CheckoutInfoPageBase {
     }
 
     @Override
+    public void typeUserInformation(String firstName, String lastName, String zip) {
+            firstNameInput.type(firstName);
+            lastNameInput.type(lastName);
+            postalCodeInput.type(zip);
+
+    }
+
+    @Override
     public CheckoutOverviewPageBase clickOnContinueBtn() {
         continueBtn.click();
         return initPage(driver, CheckoutOverviewPageBase.class);
